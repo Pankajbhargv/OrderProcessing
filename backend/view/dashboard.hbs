@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <style>
+    .main {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgb(39, 35, 42);
+      margin-top: 50px;
+      height: 50px;
+    }
+
+    .main a {
+      font-size: 15px;
+      font-weight: bolder;
+      color: white;
+    }
+
+    /* Nav Bar CSS */
+    #topnav {
+      width: 100%;
+      height: 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      background-color: Black;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      z-index: 9999;
+    }
+
+    .active {
+    background-color: gray;
+  }
+
+    .nav-link {
+      display: inline;
+      width: 100px;
+      height: 55px;
+
+      color: White;
+
+      text-align: center;
+      line-height: 55px;
+
+      text-decoration: none;
+    }
+
+    #logo {
+      width: 120px;
+
+      background-color: rgb(198, 181, 181);
+
+      font-weight: bold;
+    }
+
+    #about {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    body {
+      position: relative;
+      width: 100%;
+      display: flex;
+      background: rgb(242, 243, 245);
+    }
+
+    #menu {
+      background-color: #111827;
+      width: 300px;
+      height: 1000px;
+      position: fixed;
+      margin-top: 80px;
+
+    }
+
+    #menu .logo {
+      display: flex;
+      align-items: center;
+
+      color: #fff;
+      padding: 30px 0 0 30px;
+
+    }
+
+    #menu .logo img {
+
+      width: 40px;
+      margin-right: 15px;
+
+    }
+
+    #menu .logo a {
+      text-decoration: none;
+      color: white;
+    }
+
+    #menu .items {
+      margin-top: 40px;
+      margin-left: 40px;
+
+    }
+
+    #menu .items li {
+      list-style: none;
+      padding: 15px 0;
+      font-family: 'Oswald', sans-serif;
+      transition: 0.3s ease;
+
+    }
+
+    #menu .items li:hover {
+      
+    }
+
+    #menu .items li:nth-child(1) {
+
+      border-left: 4px solid #fff;
+
+    }
+
+    #menu .items li:nth-child(2) {
+
+      border-left: 4px solid #fff;
+
+    }
+
+    #menu .items li:nth-child(3) {
+
+      border-left: 4px solid #fff;
+
+    }
+
+    #menu .items li:nth-child(4) {
+
+      border-left: 4px solid #fff;
+
+    }
+
+    #menu .items li:nth-child(5) {
+
+      border-left: 4px solid #fff;
+
+    }
+
+    #menu .items li:nth-child(6) {
+
+      border-left: 4px solid #fff;
+
+    }
+
+    #menu .items li i {
+      color: rgb(255, 255, 255);
+      width: 40px;
+      height: 40px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 14px;
+      margin: 0 10px 0 25px;
+
+
+    }
+
+    #menu .items li:hover i,
+    #menu .items li:hover a {
+      
+    }
+
+    #menu .items li a {
+      color: rgb(134, 141, 151);
+      text-decoration: none;
+      font-weight: 300px;
+      transition: 0.3s ease;
+    }
+
+    #profile {
+      width: 40px;
+      height: 40px;
+    }
+
+    #interface {
+      width: calc(100% - 300px);
+
+    }
+
+    #interface .navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 15px 30px;
+      border-bottom: 3px solid;
+      z-index: 1;
+    }
+
+    #interface .navigation .search {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px 14px;
+      border: 1px solid black;
+      border-radius: 4px;
+      border-bottom: 1px solid black;
+
+
+    }
+
+    #interface .navigation .search input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+
+    #interface .navigation .profile ion-icon {
+      height: 40px;
+      width: 40px;
+      position: relative;
+      margin-right: 20px;
+    }
+
+    .i-name {
+      color: #444a53;
+      padding: 10px 0px 0 30px;
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 15px;
+      margin-top: 5px;
+
+
+    }
+
+    .values {
+      padding: 30px 30px 0 30px;
+    }
+
+    .values .val-box {
+      background: #fff;
+      width: 190 px;
+      padding: 16px 20px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100px;
+    }
+
+    .values .val-box i {
+      margin-right: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 60px;
+      width: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      color: black;
+      font-size: 2em;
+
+    }
+
+    #interface .secondcontainer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+
+    /* Charts Starts Here */
+    .charts {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 20px;
+      width: calc(100%-300px);
+      padding: 20px;
+      padding-top: 0;
+      margin-top: 20px;
+    }
+
+
+    .chart {
+      background: #fff;
+      padding: 10px;
+      padding-bottom: 10px;
+      border-radius: 20px;
+      box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+
+
+
+    }
+
+    .chart h2 {
+      margin-bottom: 5px;
+      font-size: 20px;
+      color: #666;
+      text-align: center;
+
+    }
+
+    /* Responsive Start Here */
+    @media(max-width:1115px) {
+      #menu {
+        width: 60px;
+      }
+    }
+
+
+.modal-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+    /* index.hbs CSS */
+  </style>
+
+
+</head>
+
+<body>
+
+  {{!-- navbar --}}
+   <nav id="topnav">
+        <a id="logo" class="nav-link" href="#">ShopBuzz</a>
+        <a class="nav-link" href="/adminechart">Dashboard</a>
+
+        <a class="nav-link" href="/dashboard">View Products</a>
+
+
+
+
+
+
+
+        <a id="about" class="nav-link" href="/logout">Logout</a>
+
+
+
+    </nav>
+  <!-- -->
+  <section id="menu">
+    <div class="logo">
+
+      <a href="">
+        <h2>OrderPlace</h2>
+      </a>
+    </div>
+
+    <div class="items">
+      <li> <i class='bx bxs-user'></i><a href="/dashboard">View Products</a></li>
+      <li><i class='bx bx-cart-add'></i><a href="/update-product">Update Product Details</a></li>
+      <li> <i class='bx bx-list-plus'></i><a href="/add">Add Products</a></li>
+
+
+
+    </div>
+  </section>
+
+
+  <!-- Modal -->
+  <h2 style="text-align: center">ORDER</h2>
+  <div style="margin-top : 80px">
+    <div>
+      <div class="modal-content" style="margin-left: 210px; width : auto">
+
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product ID</th>
+
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Description</th>
+                <th scope="col">Product Category</th>
+                <th scope="col">Product Quantity</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {{#each productlist}}
+              <tr>
+                <td>{{id}}</td>
+
+                <td >{{pname}}</td>
+                <td >{{pprice}}</td>
+                <td >{{pdescription}}</td>
+                <td >{{pcategory}}</td>
+                <td >{{pquantity}}</td>
+
+
+
+                <td>
+                  <form action="/delete/{{this.id}}" method="POST">
+                    <button onclick="return confirm('Are you sure you want to delete this order?')"
+                      class="btn btn-danger" type="submit">Delete</button>
+                  </form> </a>
+                </td>
+
+                <td>
+                  <form action="/update-product/{{this.id}}" method="POST">
+                    <button type="submit" class="btn btn-dark">Edit</button>
+                  </form> </a>
+                </td>
+                {{!-- <td><a href="/update-product/{{productlist.id}}"><button class="btn btn-light"
+                      style="margin-left: 10px;">Edit</button></a> </td> --}}
+              </tr>
+
+
+              {{/each}}
+
+
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+
+
+          <a href="/adminechart"><button type="submit"
+              class="btn btn-dark">Check Inventory Status</button></a>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <script>$(".modal").modal("show")
+    
+  </script>
+</body>
+
+
+
+</html>

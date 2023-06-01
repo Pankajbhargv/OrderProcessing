@@ -1,0 +1,133 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+
+    <style>
+        {
+            display: flex;
+            flex-direction: column;
+            margin: 2px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(39, 35, 42);
+            margin-top: 50px;
+            height: 40px;
+        }
+
+        .main a {
+            font-size: 15px;
+            font-weight: bolder;
+            color: white;
+        }
+
+        /* Nav Bar CSS */
+        #topnav {
+            width: 100%;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            background-color: Black;
+
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            width: 100px;
+            height: 55px;
+
+            color: White;
+
+            text-align: center;
+            line-height: 55px;
+
+            text-decoration: none;
+        }
+
+        #logo {
+            width: 120px;
+
+            background-color: rgb(198, 181, 181);
+
+            font-weight: bold;
+        }
+
+        #about {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .table{
+          
+            align-items: center;
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav id="topnav">
+        <a id="logo" class="nav-link" href="#">ShopBuzz</a>
+        <a class="nav-link" href="">Home</a>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="#">View Orders</a>
+
+        {{#if loggedIn}}
+        <a id="about" class="nav-link" href="/logout">Logout</a>
+        {{else}}
+        <a id="about" class="nav-link" href="/login">Logout</a>
+        {{/if}}
+    </nav>
+
+
+    <h2 style="text-align: center">ORDER DASHBOARD</h2>
+
+    <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Product ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Price</th>
+       <th scope="col">Product Description</th>
+       <th scope="col">Product Category</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {{!-- the data is fetched from the database --}}
+      {{#each productlist}}
+    <tr>
+     
+      <td>{{pname}}</td>
+      <td>{{pprice}}</td>
+      <td>{{pdescription}}</td>
+      <td>{{pcategory}}</td>
+    </tr>
+    {{/each}}
+  
+   
+    
+  </tbody>
+</table>
+</body>
+
+</html> --}}

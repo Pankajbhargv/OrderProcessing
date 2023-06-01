@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN DASHBOARD</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.26.3/dist/apexcharts.min.js"></script>
+
+
+    {{!--
+    <link rel="stylesheet" href="./styles.css"> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            display: flex;
+            background: rgb(242, 243, 245);
+        }
+
+        #menu {
+            background-color: #111827;
+            margin-top: 50px;
+            width: 300px;
+            height: 650px;
+
+        }
+
+        #menu .logo {
+            display: flex;
+            align-items: center;
+
+            color: #fff;
+            padding: 30px 0 0 30px;
+
+        }
+
+        #menu .logo img {
+
+            width: 40px;
+            margin-right: 15px;
+
+        }
+
+        #menu .logo a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #menu .items {
+            margin-top: 40px;
+            margin-left: 40px;
+
+        }
+
+        #menu .items li {
+            list-style: none;
+            padding: 15px 0;
+            font-family: 'Oswald', sans-serif;
+            transition: 0.3s ease;
+
+        }
+
+        #menu .items li:hover {
+            background: #253047;
+            cursor: pointer;
+        }
+
+        #menu .items li:nth-child(1) {
+
+            border-left: 4px solid #fff;
+
+        }
+
+        #menu .items li:nth-child(2) {
+
+            border-left: 4px solid #fff;
+
+        }
+
+        #menu .items li:nth-child(3) {
+
+            border-left: 4px solid #fff;
+
+        }
+
+        #menu .items li:nth-child(4) {
+
+            border-left: 4px solid #fff;
+
+        }
+
+        #menu .items li:nth-child(5) {
+
+            border-left: 4px solid #fff;
+
+        }
+
+        #menu .items li:nth-child(6) {
+
+            border-left: 4px solid #fff;
+
+        }
+
+        #menu .items li i {
+            color: rgb(255, 255, 255);
+            width: 40px;
+            height: 40px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            margin: 0 10px 0 25px;
+
+
+        }
+
+        #menu .items li:hover i,
+        #menu .items li:hover a {
+            color: #F3F4F6;
+        }
+
+        #menu .items li a {
+            color: rgb(134, 141, 151);
+            text-decoration: none;
+            font-weight: 300px;
+            transition: 0.3s ease;
+        }
+
+        #profile {
+            width: 40px;
+            height: 40px;
+        }
+
+        #interface {
+            width: calc(100% - 300px);
+
+        }
+
+        #interface .navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 15px 30px;
+            border-bottom: 3px solid;
+            z-index: 1;
+        }
+
+        #interface .navigation .search {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 14px;
+            border: 1px solid black;
+            border-radius: 4px;
+            border-bottom: 1px solid black;
+
+
+        }
+
+        #interface .navigation .search input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        #interface .navigation .profile ion-icon {
+            height: 40px;
+            width: 40px;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .i-name {
+            color: #444a53;
+
+            font-size: 24px;
+            font-weight: 700;
+            margin-left: 15px;
+            margin-top: 5px;
+
+
+        }
+
+        .firstbox {
+            padding: 10px 10px 0 10px;
+        }
+
+          .secondbox {
+            padding: 10px 10px 0 10px;
+        }
+
+          .thirdbox {
+            padding: 10px 10px 0 10px;
+        }
+
+        .admin {
+            padding: 10px 10px 0 10px;
+        }
+
+        .firstbox .val-box {
+            background: #f71717;
+            width: 190 px;
+            padding: 16px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 50px;
+        }
+
+            .secondbox .val-box {
+            background: #3ea904;
+            width: 190 px;
+            padding: 16px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 50px;
+        }
+
+            .thirdbox .val-box {
+            background: #e7f30a;
+            width: 190 px;
+            padding: 16px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 50px;
+        }
+
+        .admin .val-box{
+            background: #fb9506;
+            width: 250px;
+            padding: 16px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100px;
+            margin-left: 80px;
+        }
+
+        
+
+         .firstbox .val-box i {
+            margin-right: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            color: black;
+            font-size: 2em;
+
+        }
+
+         .secondbox .val-box i {
+            margin-right: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            color: black;
+            font-size: 2em;
+
+        }
+
+         .thirdbox .val-box i {
+            margin-right: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            color: black;
+            font-size: 2em;
+
+        }
+        .admin .val-box i {
+            margin-right: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            color: black;
+            font-size: 2em;
+
+        }
+
+        #interface .secondcontainer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 50px;
+            margin-left: 30px;
+        }
+
+        /* Charts Starts Here */
+        .charts {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 20px;
+            width: calc(100%-300px);
+            padding: 20px;
+            padding-top: 0;
+            margin-top: 20px;
+        }
+
+
+        .chart {
+            background: #fff;
+            padding: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+
+
+
+        }
+
+        .chart h2 {
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: #666;
+            text-align: center;
+
+        }
+
+        /* Responsive Start Here */
+        @media(max-width:1115px) {
+            #menu {
+                width: 60px;
+            }
+        }
+
+
+        /* index.hbs CSS */
+
+        /* Nav Bar CSS */
+        #topnav {
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            background-color: Black;
+
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .nav-link {
+            display: inline;
+            width: 100px;
+            height: 55px;
+            margin: 10px;
+            padding: 8px 16px;
+
+            color: White;
+
+            text-align: center;
+            line-height: 55px;
+
+            text-decoration: none;
+        }
+
+        #logo {
+            width: 120px;
+
+            background-color: rgb(198, 181, 181);
+
+            font-weight: bold;
+            padding: 8px 16px;
+        }
+
+        #about {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <section id="menu">
+        <div class="logo">
+
+            <a href="">
+                <h2>OrderPlace</h2>
+            </a>
+        </div>
+
+        <div class="items">
+            <li> <i class='bx bxs-user'></i><a href="/dashboard">View Products</a></li>
+            <li><i class='bx bx-cart-add'></i><a href="/update-product">Update Product Details</a></li>
+            <li> <i class='bx bx-list-plus'></i><a href="/add">Add Products</a></li>
+
+
+
+        </div>
+    </section>
+    <nav id="topnav">
+        <a id="logo" class="nav-link" href="#">ShopBuzz</a>
+        <a class="nav-link" href="/admin">Home</a>
+        
+        <a class="nav-link" href="/dashboard">View Products</a>
+       
+        
+
+
+
+
+        {{#if loggedIn}}
+        <a id="about" class="nav-link" href="/logout">Logout</a>
+        {{else}}
+        <a id="about" class="nav-link" href="/login">Logout</a>
+        {{/if}}
+    </nav>
+
+    <section id="interface">
+
+
+
+
+        <h3 class="i-name">Dashboard</h3>
+        <div class="secondcontainer" style="margin-bottom: 10px;">
+            <div class="firstbox">
+                <div class="val-box">
+                    <i class='bx bxs-user-account'></i>
+                    <div>
+                        <h3>{{userCount}}</h3>
+                        <h3>Users</h3>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="secondbox">
+                <div class="val-box">
+                    <i class='bx bxs-cart'></i>
+                    <div>
+                        <h3>{{orderCount}}</h3>
+                        <h3>Orders</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thirdbox">
+                <div class="val-box">
+                    <i class='bx bx-money-withdraw'></i>
+                    <div>
+                        <h3>{{totalRevenue}} Rupees</h3>
+                        <h3>Total Revenue</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin">
+                <div class="val-box">
+                    <i class='bx bxs-user'></i>
+                    <div>
+                        <h3>{{username}}</h3>
+                        <h3>{{email}}</h3>
+                        <h3>{{role}}</h3>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <hr>
+
+
+        <div class="charts">
+            <div class="chart">
+                <h2>Earnings(past 12 Months)</h2>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart" id="doughnut-chart">
+                <h2>Orders</h2>
+                <canvas id="doughnut"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+
+
+<script>
+        function validation() {
+            if (document.Formfill.Username.value == "") {
+                document.getElementById("result").innerHTML = "Enter Username*";
+                return false;
+            }
+            else if (document.Formfill.Username.length < 6) {
+                document.getElementById("result").innerHTML = "Enter atleast 6 characters*";
+                return false;
+            }
+
+            else if (document.Formfill.email.value == "") {
+                document.getElementById("result").innerHTML = "Enter Email Address";
+                return false;
+            }
+
+            else if (document.Formfill.password.value == "") {
+                document.getElementById("result").innerHTML = "Enter Password";
+                return false;
+            }
+
+            else if (document.Formfill.password.length < 6) {
+                document.getElementById("result").innerHTML = "Enter atleast 6 characters";
+                return false;
+            }
+
+            else if (document.Formfill.cPassword.value == "") {
+                document.getElementById("result").innerHTML = "Enter Confirm Password";
+                return false;
+            }
+
+            else if (document.Formfill.cPassword.value !== document.Formfill.password.value) {
+                document.getElementById("result").innerHTML = "Password doesn't match";
+                return false;
+            }
+
+            else if (document.Formfill.cPassword.value == document.Formfill.password.value) {
+                popup.classList.add("open-slide")
+                return false;
+            }
+
+        }
+
+        var popup = document.getElementById('popup');
+
+        function closeSlide() {
+            popup.classList.remove("open-slide");
+        }
+
+    </script>
+    <script>
+       function createCharts(statusOrderData, orderData) {
+
+  const productNames = orderData.map(item => item.product_name);
+  const revenueValues = orderData.map(item => item.revenue);
+
+  const barChartOptions = {
+    chart: {
+      type: 'bar',
+      height: 350
+    },
+    series: [
+      {
+        name: 'Annual Revenue',
+        data: revenueValues
+      }
+    ],
+    xaxis: {
+      categories: productNames,
+      labels: {
+        rotate: -90
+      }
+    },
+    title: {
+      text: 'ApexCharts - Dynamically Update Chart Via Ajax Requests',
+      align: 'center'
+    },
+    tooltip: {
+      shared: true,
+      intersect: false
+    },
+    legend: {
+      show: false
+    }
+  };
+  const barChart = new ApexCharts(
+    document.getElementById('barChart'),
+    barChartOptions
+  );
+  barChart.render();
+
+  const doughnutChartOptions = {
+    chart: {
+      type: 'donut',
+      height: 350
+    },
+    series: [
+      statusOrderData.ordered_total,
+      statusOrderData.processing_total,
+      statusOrderData.cancelled_total,
+      statusOrderData.processed_total
+    ],
+    labels: ['Ordered', 'Processing', 'Cancelled', 'Processed'],
+    title: {
+      text: 'ApexCharts - Dynamically Update Chart Via Ajax Requests',
+      align: 'center'
+    },
+    legend: {
+      position: 'bottom'
+    },
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    ]
+  };
+  const doughnutChart = new ApexCharts(
+    document.getElementById('doughnut'),
+    doughnutChartOptions
+  );
+  doughnutChart.render();
+}
+
+const statusOrderData = JSON.parse(decodeURIComponent('{{statusOrderData}}'));
+const ordersData = JSON.parse(decodeURIComponent('{{ordersData}}'));
+createCharts(statusOrderData, ordersData);
+
+    </script>
+
+
+</body>
+
+</html>

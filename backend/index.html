@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN DASHBOARD</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="menu">
+        <div class="logo">
+            <img src="./images/pankaj.png" alt="Error">
+            <a href=""><h2>OrderPlace</h2></a>
+        </div>
+
+        <div class="items">
+            <li> <i class='bx bxs-user'></i><a href="/">Dashboard</a></li>
+            <li><i class='bx bx-cart-add'></i><a href="/add">Add Cart</a></li>
+            <li> <i class='bx bx-list-plus' ></i>><a href="#">Description</a></li>
+            <li><i class='bx bx-comment-minus' ></i><a href="#">Delete</a></li>
+            <li> <i class='bx bx-history' ></i><a href="#">Order History</a></li>
+            <li><i class='bx bx-user-pin'></i><a href="http://www.linkedin.com/in/pankajbhargv" target="_blank">Profile</a></li>
+            
+        </div>
+    </section>
+
+
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div class="search">
+                    <ion-icon name="search-circle-outline"></ion-icon>
+                    <input type="text" placeholder="search"> 
+                </div> 
+            </div>
+
+            <div class="profile">
+                <a href="./index.html"><ion-icon name="notifications-circle-outline"></ion-icon></a>
+                <a href="http://www.linkedin.com/in/pankajbhargv"><img src="./images/pankaj.png" alt="Error" id="profile"></a>
+            </div>
+
+
+        </div>
+
+
+        <h3 class="i-name">Dashboard</h3>
+        <div class="secondcontainer" style="margin-bottom: 10px;">
+            <div class="values">
+                <div class="val-box">
+                    <i class='bx bxs-user-account'></i>
+                    <div>
+                        <h3>8,457</h3>
+                        <h3>Users</h3>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="values">
+                <div class="val-box">
+                    <i class='bx bxs-cart'></i>
+                    <div>
+                        <h3>1.2Cr</h3>
+                        <h3>Orders</h3>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="values">
+                <div class="val-box">
+                    <i class='bx bxs-store'></i>
+                    <div>
+                        <h3>3455</h3>
+                        <h3>Stocks</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="values">
+                <div class="val-box">
+                    <i class='bx bxs-user-account'></i>
+                    <div>
+                        <h3>$20,00.15</h3>
+                        <h3>Revenue</h3>
+                    </div>
+                </div>
+            </div>
+    
+            
+        </div>
+
+     <hr>
+
+
+     <div class="charts">
+        <div class="chart">
+            <h2>Earnings(past 12 Months)</h2>
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div class="chart" id="doughnut-chart">
+            <h2>Orders</h2>
+            <canvas id="doughnut"></canvas>
+        </div>
+
+     </div>
+        
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <script src="./chart1.js"></script>
+    <script src="./chart2.js"></script>
+
+</body>
+</html>

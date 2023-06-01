@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+    <style>
+   /* Nav Bar CSS */
+    #topnav {
+      width: 100%;
+      height: 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      background-color: Black;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .nav-link {
+      display: inline;
+      width: 100px;
+      height: 55px;
+      margin: 10px;
+      padding: 0px 0px;
+
+      color: White;
+
+      text-align: center;
+      line-height: 55px;
+
+      text-decoration: none;
+    }
+
+    #logo {
+      width: 120px;
+
+      background-color: rgb(198, 181, 181);
+
+      font-weight: bold;
+      padding: 8px 16px;
+    }
+
+    #about {
+      position: absolute;
+      top: 0;
+      right: 0;
+      
+    }
+
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 230px;
+    }
+    
+    .product{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+ 
+    </style>
+</head>
+<body>
+    <nav id="topnav">
+    <a id="logo" class="nav-link" href="#">ShopBuzz</a>
+    <a class="nav-link" href="/adminechart">Dashboard</a>
+   
+    <a class="nav-link" href="/dashboard">View Products</a>
+
+    {{#if loggedIn}}
+    <a id="about" class="nav-link" href="/logout">Logout</a>
+    {{else}}
+    <a id="about" class="nav-link" href="/login">Logout</a>
+    {{/if}}
+  </nav>
+
+   
+    <h1 class="title">Update Product</h1>
+<div class="product">
+  <form id="update-form" method="post">
+    <div class="form-group">
+      <label for="id">Product ID:</label>
+      <input type="number" id="id" name="id" required>
+      <button type="submit" class="btn btn-info">Submit</button>
+      
+    </div>
+  </form>
+</div>
+
+    <script>
+        const form = document.getElementById('update-form');
+        const idInput = document.getElementById('id');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const productId = idInput.value;
+            const actionUrl = `/update-product/${productId}`;
+            form.action = actionUrl;
+            form.submit();
+        });
+    </script>
+    
+</body>
+</html>

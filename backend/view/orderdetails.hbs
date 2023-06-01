@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Details</title>
+  </head>
+  <body>
+    <h1>Order Details</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Date</th>
+          <th>Total Price</th>
+          <th>Order Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each orders}}
+          <tr>
+            <td>{{this.column_id}}</td>
+            <td>
+              <form action="/orders/{{this.column_id}}" method="POST">
+                <input type="text" name="orderDate" value="{{this.order_date}}" />
+            </td>
+            <td>
+                <input type="text" name="totalPrice" value="{{this.total_price}}" />
+            </td>
+            <td>
+                <input type="text" name="orderStatus" value="{{this.order_status}}" />
+            </td>
+            <td>
+                <button type="submit">Save</button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>
